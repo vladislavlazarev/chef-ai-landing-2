@@ -1,94 +1,66 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Camera, Mic, Search, Sparkles } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { Camera, Mic, Search, Sparkles, WifiOff, Heart } from "lucide-react";
 import { useTranslation } from "../../i18n/useTranslation";
-import { GlowingEffect } from "../ui/GlowingEffect";
-
-const featureKeys = ["photo", "voice", "search", "recipes"] as const;
 
 const featureConfig = [
-  {
-    icon: Camera,
-    bgColor: "bg-amber-50",
-    iconColor: "text-amber-500",
-    hoverBg: "group-hover:bg-amber-100",
-  },
-  {
-    icon: Mic,
-    bgColor: "bg-orange-50",
-    iconColor: "text-orange-500",
-    hoverBg: "group-hover:bg-orange-100",
-  },
-  {
-    icon: Search,
-    bgColor: "bg-yellow-50",
-    iconColor: "text-yellow-600",
-    hoverBg: "group-hover:bg-yellow-100",
-  },
-  {
-    icon: Sparkles,
-    bgColor: "bg-rose-50",
-    iconColor: "text-rose-500",
-    hoverBg: "group-hover:bg-rose-100",
-  },
+  { key: "photo" as const, icon: Camera, bg: "bg-[#FEF3C7]", color: "text-[#D97706]", large: true },
+  { key: "voice" as const, icon: Mic, bg: "bg-[#FFEDD5]", color: "text-[#EA580C]", large: false },
+  { key: "search" as const, icon: Search, bg: "bg-[#FEF9C3]", color: "text-[#CA8A04]", large: false },
+  { key: "recipes" as const, icon: Sparkles, bg: "bg-[#FFE4E6]", color: "text-[#E11D48]", large: true },
+  { key: "offline" as const, icon: WifiOff, bg: "bg-[#DBEAFE]", color: "text-[#2563EB]", large: false },
+  { key: "diet" as const, icon: Heart, bg: "bg-[#FCE7F3]", color: "text-[#DB2777]", large: false },
 ];
 
 export function Features() {
   const { t } = useTranslation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative bg-white py-20 md:py-28" ref={ref}>
-      {/* Smooth fade-in from gradient sections */}
-      <div className="pointer-events-none absolute top-0 left-0 -z-0 h-24 w-full bg-gradient-to-b from-brand-cream to-transparent" />
-      <div className="mx-auto max-w-6xl px-4">
-        <motion.h2
-          className="text-center text-3xl font-bold text-brand-stone-900 md:text-4xl"
+    <section ref={ref} className="bg-section-alt py-16 md:py-24">
+      <div className="mx-auto max-w-[1200px] px-4">
+        {/* Header */}
+        <motion.div
+          className="mb-14 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          {t.features.title}
-        </motion.h2>
+          <h2 className="text-[32px] font-bold text-heading md:text-[40px]">
+            {t.features.title}
+          </h2>
+          <p className="mx-auto mt-3 max-w-[500px] text-lg text-muted">
+            {t.features.subtitle}
+          </p>
+        </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
-          {featureKeys.map((key, i) => {
-            const { icon: Icon, bgColor, iconColor, hoverBg } =
-              featureConfig[i];
-            const feature = t.features[key];
-
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {featureConfig.map((feat, i) => {
+            const Icon = feat.icon;
+            const feature = t.features[feat.key];
             return (
               <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 30 }}
+                key={feat.key}
+                className={`group rounded-2xl border border-card-border bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${
+                  feat.large ? "lg:col-span-2" : ""
+                }`}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <div className="relative rounded-2xl border border-gray-200/60 p-1.5 md:rounded-[1.25rem] md:p-2">
-                  <GlowingEffect
-                    spread={40}
-                    glow={true}
-                    disabled={false}
-                    proximity={64}
-                    inactiveZone={0.01}
-                    borderWidth={2}
-                  />
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-xl bg-white p-6 md:p-7">
-                    <div
-                      className={`flex h-11 w-11 items-center justify-center rounded-lg ${bgColor} ${iconColor} ${hoverBg} transition-all duration-300 group-hover:scale-110`}
-                    >
-                      <Icon size={22} strokeWidth={1.8} />
-                    </div>
-                    <h3 className="mt-4 text-lg font-semibold text-brand-stone-900">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-brand-stone-500">
-                      {feature.description}
-                    </p>
-                  </div>
+                <div
+                  className={`flex h-12 w-12 items-center justify-center rounded-full ${feat.bg} ${feat.color}`}
+                >
+                  <Icon size={24} />
                 </div>
+                <h3 className="mt-4 text-xl font-semibold text-heading">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-body">
+                  {feature.description}
+                </p>
               </motion.div>
             );
           })}

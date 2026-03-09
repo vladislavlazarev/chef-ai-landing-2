@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/cn";
 import { useTranslation } from "../../i18n/useTranslation";
@@ -11,11 +12,12 @@ const locales: { code: Locale; label: string }[] = [
 
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { locale, setLocale } = useTranslation();
+  const id = useId();
 
   return (
     <div
       className={cn(
-        "relative flex items-center gap-0.5 rounded-xl border border-gray-200/60 bg-white/90 p-0.5 shadow-sm backdrop-blur-xl",
+        "relative flex items-center gap-0.5 rounded-xl border border-card-border bg-white/90 p-0.5 backdrop-blur-xl",
         className
       )}
     >
@@ -26,14 +28,14 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           className={cn(
             "relative z-10 cursor-pointer rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors duration-200",
             locale === code
-              ? "text-brand-stone-900"
-              : "text-brand-stone-500 hover:text-brand-stone-700"
+              ? "text-white"
+              : "text-muted hover:text-heading"
           )}
         >
           {locale === code && (
             <motion.div
-              layoutId="lang-indicator"
-              className="absolute inset-0 rounded-lg bg-gradient-to-b from-amber-200 to-brand-gold/80 shadow-sm"
+              layoutId={`lang-indicator-${id}`}
+              className="absolute inset-0 rounded-lg bg-primary shadow-sm"
               transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
             />
           )}

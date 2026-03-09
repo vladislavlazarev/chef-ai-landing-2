@@ -1,42 +1,67 @@
+import { Instagram } from "lucide-react";
+import { StoreButtons } from "../ui/StoreButtons";
+import { LanguageSwitcher } from "../ui/LanguageSwitcher";
 import { useTranslation } from "../../i18n/useTranslation";
 
 export function Footer() {
   const { t } = useTranslation();
 
+  const links = [
+    { label: t.footer.privacy, href: "#" },
+    { label: t.footer.terms, href: "#" },
+    { label: t.footer.support, href: "#" },
+    { label: t.footer.contact, href: "#" },
+  ];
+
   return (
-    <footer className="bg-brand-stone-900 py-12 text-white">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          {/* Logo */}
-          <a href="#" className="font-cursive text-2xl text-white">
-            Chef
-          </a>
+    <footer className="bg-footer-bg pt-16 pb-8 text-white">
+      <div className="mx-auto max-w-[1200px] px-4">
+        <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-between">
+          {/* Logo & tagline */}
+          <div className="text-center md:text-left">
+            <a href="#" className="font-cursive text-2xl text-white">
+              Chef <span className="text-gold">AI</span>
+            </a>
+            <p className="mt-2 text-sm text-muted">{t.footer.tagline}</p>
+          </div>
 
           {/* Links */}
-          <div className="flex gap-6 text-sm text-gray-400">
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {links.map((link, i) => (
+              <a
+                key={i}
+                href={link.href}
+                className="cursor-pointer text-sm text-muted transition-colors duration-200 hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Store & social */}
+          <div className="flex flex-col items-center gap-4 md:items-end">
+            <StoreButtons className="[&_div]:h-10 [&_div]:text-xs" />
             <a
-              href="#"
-              className="cursor-pointer transition-colors duration-200 hover:text-white"
+              href="https://www.instagram.com/chefai_uz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted transition-colors hover:text-white"
+              aria-label="Instagram"
             >
-              {t.footer.privacy}
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer transition-colors duration-200 hover:text-white"
-            >
-              {t.footer.terms}
-            </a>
-            <a
-              href="#"
-              className="cursor-pointer transition-colors duration-200 hover:text-white"
-            >
-              {t.footer.support}
+              <Instagram size={20} />
             </a>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} AI Chef. {t.footer.rights}.
+        {/* Divider */}
+        <div className="mt-10 border-t border-[#2A2520]" />
+
+        {/* Bottom */}
+        <div className="mt-5 flex flex-col items-center gap-4 md:flex-row md:justify-between">
+          <p className="text-[13px] text-[#6A6460]">
+            &copy; {new Date().getFullYear()} Chef AI. {t.footer.rights}.
+          </p>
+          <LanguageSwitcher className="border-[#2A2520] bg-transparent" />
         </div>
       </div>
     </footer>
