@@ -4,7 +4,7 @@ export const translations = {
       download: "Скачать",
     },
     hero: {
-      badge: "Рейтинг 4.8 · 50K+ скачиваний",
+      badge: "Рейтинг 4.8 · 5K+ скачиваний",
       title: "Что в холодильнике?\nAI знает рецепт.",
       subtitle:
         "Сфотографируйте продукты, скажите вслух или просто напишите — Chef AI создаст персональные рецепты из ваших ингредиентов за секунды.",
@@ -126,7 +126,7 @@ export const translations = {
       download: "Yuklab olish",
     },
     hero: {
-      badge: "4.8 Reyting · 50K+ yuklab olishlar",
+      badge: "4.8 Reyting · 5K+ yuklab olishlar",
       title: "Muzlatgichda nima bor?\nAI retseptni biladi.",
       subtitle:
         "Mahsulotlarni suratga oling, ovoz bilan ayting yoki yozing — Chef AI sizning ingredientlaringizdan bir necha soniyada retsept yaratadi.",
@@ -209,7 +209,7 @@ export const translations = {
       download: "Download",
     },
     hero: {
-      badge: "4.8 Rating · 50K+ Downloads",
+      badge: "4.8 Rating · 5K+ Downloads",
       title: "What's in your fridge?\nAI knows the recipe.",
       subtitle:
         "Snap a photo, say it out loud, or just type — Chef AI creates personalized recipes from your ingredients in seconds.",

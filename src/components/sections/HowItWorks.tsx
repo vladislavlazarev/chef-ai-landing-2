@@ -1,17 +1,31 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "../../i18n/useTranslation";
+import type { Locale } from "../../i18n/translations";
 
-import screenshot1 from "../../assets/screenshots/Главная.png";
-import screenshot2 from "../../assets/screenshots/Список ингредиентов.png";
-import screenshot3 from "../../assets/screenshots/Карточка генерации.png";
+import step1En from "../../assets/screenshots/banner 1 eng.png";
+import step2En from "../../assets/screenshots/banner 2 eng.png";
+import step3En from "../../assets/screenshots/banner 3 eng.png";
 
-const screenshots = [screenshot1, screenshot2, screenshot3];
+import step1Ru from "../../assets/screenshots/banner 1 ru + uzb.png";
+import step2Ru from "../../assets/screenshots/banner 2 ru + uzb.png";
+import step3Ru from "../../assets/screenshots/banner 3 ru + uzb.png";
+
+const screenshotsEn = [step1En, step2En, step3En];
+const screenshotsRu = [step1Ru, step2Ru, step3Ru];
+
+const screenshotsByLocale: Record<Locale, string[]> = {
+  en: screenshotsEn,
+  ru: screenshotsRu,
+  uz: screenshotsRu,
+};
 
 export function HowItWorks() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const screenshots = screenshotsByLocale[locale];
 
   const steps = [
     { num: "01", ...t.howItWorks.step1 },
