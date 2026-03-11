@@ -34,10 +34,10 @@ export function SocialProof() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const stats = [
-    { icon: Download, value: 50000, suffix: "+", label: t.socialProof.downloads, decimals: 0, display: "50,000+" },
-    { icon: Star, value: 4.8, suffix: "", label: t.socialProof.rating, decimals: 1, display: "4.8" },
-    { icon: ChefHat, value: 10000, suffix: "+", label: t.socialProof.recipes, decimals: 0, display: "10,000+" },
-    { icon: Globe, value: 3, suffix: "", label: t.socialProof.languages, decimals: 0, display: "3" },
+    { icon: Download, value: 5000, suffix: "+", label: t.socialProof.downloads, decimals: 0 },
+    { icon: Star, value: 4.8, suffix: "", label: t.socialProof.rating, decimals: 1 },
+    { icon: ChefHat, value: 1000, suffix: "+", label: t.socialProof.recipes, decimals: 0 },
+    { icon: Globe, value: 3, suffix: "", label: t.socialProof.languages, decimals: 0 },
   ];
 
   return (

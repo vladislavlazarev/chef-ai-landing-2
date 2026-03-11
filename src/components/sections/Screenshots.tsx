@@ -2,19 +2,27 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "../../i18n/useTranslation";
 
-import screen1 from "../../assets/screenshots/Главная.png";
-import screen2 from "../../assets/screenshots/Айфон - 1.png";
-import screen3 from "../../assets/screenshots/Список ингредиентов.png";
-import screen4 from "../../assets/screenshots/Карточка генерации.png";
-import screen5 from "../../assets/screenshots/Айфон - 2.png";
+import banner1En from "../../assets/screenshots/banner 1 eng.png";
+import banner2En from "../../assets/screenshots/banner 2 eng.png";
+import banner3En from "../../assets/screenshots/banner 3 eng.png";
+import banner4En from "../../assets/screenshots/banner 4 eng.png";
 
-const screens = [screen1, screen2, screen3, screen4, screen5];
-const offsets = [0, -8, 0, -8, 0];
+import banner1Ru from "../../assets/screenshots/banner 1 ru + uzb.png";
+import banner2Ru from "../../assets/screenshots/banner 2 ru + uzb.png";
+import banner3Ru from "../../assets/screenshots/banner 3 ru + uzb.png";
+import banner4Ru from "../../assets/screenshots/banner 4 ru + uzb.png";
+
+const bannersEn = [banner1En, banner2En, banner3En, banner4En];
+const bannersRu = [banner1Ru, banner2Ru, banner3Ru, banner4Ru];
+
+const offsets = [0, -8, 0, -8];
 
 export function Screenshots() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const screens = locale === "en" ? bannersEn : bannersRu;
 
   return (
     <section ref={ref} className="bg-section-alt py-16 md:py-20">

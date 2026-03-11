@@ -4,7 +4,6 @@ import { Hero } from "./components/sections/Hero";
 import { SocialProof } from "./components/sections/SocialProof";
 import { HowItWorks } from "./components/sections/HowItWorks";
 import { Features } from "./components/sections/Features";
-import { Testimonials } from "./components/sections/Testimonials";
 import { Screenshots } from "./components/sections/Screenshots";
 import { FAQ } from "./components/sections/FAQ";
 import { DownloadCTA } from "./components/sections/DownloadCTA";
@@ -19,7 +18,6 @@ function App() {
         <SocialProof />
         <HowItWorks />
         <Features />
-        <Testimonials />
         <Screenshots />
         <FAQ />
         <DownloadCTA />

@@ -12,7 +12,7 @@ export const translations = {
     },
     socialProof: {
       downloads: "Скачиваний",
-      rating: "Рейтинг App Store",
+      rating: "Рейтинг",
       recipes: "Рецептов создано",
       languages: "Языка",
     },
@@ -97,7 +97,6 @@ export const translations = {
       title: "Часто задаваемые вопросы",
       subtitle: "Всё, что нужно знать",
       items: [
-        { q: "Chef AI бесплатный?", a: "Да! Chef AI полностью бесплатен для скачивания и использования. В будущем могут появиться опциональные премиум-функции, но основной функционал навсегда останется бесплатным." },
         { q: "Как работает распознавание по фото?", a: "Просто наведите камеру на продукты. Наша AI-модель определяет каждый продукт с точностью более 95% и сразу предлагает рецепты." },
         { q: "Какие языки поддерживаются?", a: "Chef AI работает на русском, узбекском и английском — включая голосовой ввод на всех трёх языках. Мы планируем добавить больше языков." },
         { q: "Можно использовать без интернета?", a: "Да! Сохранённые рецепты доступны офлайн. Распознавание фото и генерация AI-рецептов требуют подключения к интернету." },
@@ -135,7 +134,7 @@ export const translations = {
     },
     socialProof: {
       downloads: "Yuklab olishlar",
-      rating: "App Store reytingi",
+      rating: "Reyting",
       recipes: "Retseptlar yaratildi",
       languages: "Til",
     },
@@ -181,7 +180,6 @@ export const translations = {
       title: "Ko'p so'raladigan savollar",
       subtitle: "Bilishingiz kerak bo'lgan hamma narsa",
       items: [
-        { q: "Chef AI bepulmi?", a: "Ha! Chef AI ni yuklab olish va foydalanish mutlaqo bepul. Kelajakda ixtiyoriy premium funksiyalar paydo bo'lishi mumkin, lekin asosiy imkoniyatlar doimo bepul bo'lib qoladi." },
         { q: "Foto orqali aniqlash qanday ishlaydi?", a: "Kamerangizni ingredientlarga yo'naltiring. AI modelimiz har bir mahsulotni 95% dan yuqori aniqlik bilan aniqlaydi va darhol retseptlar taklif qiladi." },
         { q: "Qaysi tillar qo'llab-quvvatlanadi?", a: "Chef AI rus, o'zbek va ingliz tillarida ishlaydi — barcha uch tilda ovozli kiritish ham mavjud. Tez orada ko'proq tillar qo'shishni rejalashtirmoqdamiz." },
         { q: "Internetsiz foydalanish mumkinmi?", a: "Ha! Saqlangan retseptlarga oflayn kirish mumkin. Foto aniqlash va AI retsept yaratish uchun internet kerak." },
@@ -219,7 +217,7 @@ export const translations = {
     },
     socialProof: {
       downloads: "Downloads",
-      rating: "App Store Rating",
+      rating: "Rating",
       recipes: "Recipes Created",
       languages: "Languages",
     },
@@ -265,7 +263,6 @@ export const translations = {
       title: "Frequently Asked Questions",
       subtitle: "Everything you need to know",
       items: [
-        { q: "Is Chef AI free to use?", a: "Yes! Chef AI is completely free to download and use. We may introduce optional premium features in the future, but the core experience will always remain free." },
         { q: "How does photo recognition work?", a: "Simply point your camera at your ingredients. Our AI model identifies each item with over 95% accuracy and immediately suggests recipes you can make." },
         { q: "What languages are supported?", a: "Chef AI works in Russian, Uzbek, and English — including voice input in all three languages. We're planning to add more languages soon." },
         { q: "Can I use it without internet?", a: "Yes! Once you've saved recipes, you can access them offline. Photo recognition and AI recipe generation require an internet connection." },
